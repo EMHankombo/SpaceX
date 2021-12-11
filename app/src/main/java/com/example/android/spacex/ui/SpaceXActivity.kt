@@ -4,14 +4,19 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import com.example.android.spacex.R
+import com.example.android.spacex.databinding.ActivitySpacexBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class SpaceXActivity : AppCompatActivity() {
-    private val viewModel:SpaceXViewModel by viewModels()
+
+    private lateinit var binding: ActivitySpacexBinding
+    private val viewModel: SpaceXViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_spacex)
+        binding = ActivitySpacexBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
     }
 }

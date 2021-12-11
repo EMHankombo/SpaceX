@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SpaceX</string>
+    <string name="company_heading">Company</string>
+    <string name="company_name">SpaceX</string>
+    <string name="launches_heading">Launches</string>
+    <string name="company_information">%1$s was founded by %1$s in %1$s. It has now %1$s employees, %1$s launch sites, and is valued at USD %1$s </string>
 </resources>
