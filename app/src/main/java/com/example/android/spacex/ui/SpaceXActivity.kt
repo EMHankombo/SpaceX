@@ -6,6 +6,7 @@ import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.example.android.spacex.R
 import com.example.android.spacex.databinding.ActivitySpacexBinding
+import com.example.android.spacex.ui.adapter.SpaceXAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -13,6 +14,7 @@ class SpaceXActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySpacexBinding
     private val viewModel: SpaceXViewModel by viewModels()
+    private val spaceXAdapter = SpaceXAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

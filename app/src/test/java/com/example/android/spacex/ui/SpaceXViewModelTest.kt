@@ -62,7 +62,7 @@ class SpaceXViewModelTest {
 
     @Test
     fun `call to get data is returns with an error`() = coroutineRule.runBlockingTest {
-        whenever(repository.getData()).thenAnswer { throw IOException("An error Occurred") }
+        whenever(repository.getData()).thenAnswer { throw Exception("An error Occurred") }
 
         viewModel.getCompanyData()
 
