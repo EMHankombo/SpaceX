@@ -24,6 +24,7 @@ class SpaceXActivity : AppCompatActivity() {
             binding.tvCompanyInformation.text = getString(
                 R.string.company_information,
                 info.name,
+                info.founder,
                 info.founded.toString(),
                 info.employees.toString(),
                 info.launchSites.toString(),
@@ -31,5 +32,7 @@ class SpaceXActivity : AppCompatActivity() {
             )
 
         })
+
+        viewModel.getCompanyData()
     }
 }
