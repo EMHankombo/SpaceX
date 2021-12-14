@@ -20,7 +20,7 @@ class SpaceXActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         viewModel.companyLiveData.observe(this, {
-            val info = (it as SpaceXViewModel.UiState.Success).data
+            val info = (it as SpaceXViewModel.UiState.Success).data.company
             binding.tvCompanyInformation.text = getString(
                 R.string.company_information,
                 info.name,

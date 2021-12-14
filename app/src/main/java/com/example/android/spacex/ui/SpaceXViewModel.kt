@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.android.spacex.network.model.Company
+import com.example.android.spacex.network.model.CompanyAndLaunchInfo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -13,24 +14,24 @@ import javax.inject.Inject
 class SpaceXViewModel @Inject constructor(private val spaceXRepository: SpaceXRepository) :
     ViewModel() {
 
-    private val _companyLiveData = MutableLiveData<UiState<Company>>()
-    val companyLiveData: LiveData<UiState<Company>>
+    private val _companyLiveData = MutableLiveData<UiState>()
+    val companyLiveData: LiveData<UiState>
         get() = _companyLiveData
 
     fun getCompanyData() {
         viewModelScope.launch {
             try {
-                val companyInfo = spaceXRepository.getCompanyInfo()
+                val companyInfo = spaceXRepository.getData()
                 _companyLiveData.value = UiState.Success(companyInfo)
             } catch (e: Exception) {
-
+                _companyLiveData.value = UiState.Error
             }
         }
     }
 
-    sealed class UiState<out T> {
-        object Loading : UiState<Nothing>()
-        object Error : UiState<Nothing>()
-        data class Success<T>(val data: T) : UiState<T>()
+    sealed class UiState {
+        object Loading : UiState()
+        object Error : UiState()
+        data class Success(val data: CompanyAndLaunchInfo) : UiState()
     }
 }
