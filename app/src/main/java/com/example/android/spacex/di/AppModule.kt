@@ -2,8 +2,8 @@ package com.example.android.spacex.di
 
 import com.example.android.spacex.BASE_URL
 import com.example.android.spacex.network.ApiService
-import com.example.android.spacex.ui.SpaceXRepository
-import com.example.android.spacex.ui.SpaceXRepositoryImpl
+import com.example.android.spacex.ui.repository.SpaceXRepository
+import com.example.android.spacex.ui.repository.SpaceXRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

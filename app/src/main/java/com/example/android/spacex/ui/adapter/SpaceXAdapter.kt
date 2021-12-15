@@ -63,7 +63,6 @@ class SpaceXAdapter(
                     )
                 }
 
-
                 Glide.with(itemBinding.root).load(launch.links.patch.large).into(imgPatch)
             }
             itemBinding.root.setOnClickListener {

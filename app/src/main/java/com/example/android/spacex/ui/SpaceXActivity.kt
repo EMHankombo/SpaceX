@@ -5,13 +5,13 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android.spacex.R
 import com.example.android.spacex.databinding.ActivitySpacexBinding
 import com.example.android.spacex.network.model.CompanyAndLaunchInfo
 import com.example.android.spacex.ui.adapter.SpaceXAdapter
+import com.example.android.spacex.ui.viewmodel.SpaceXViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -20,14 +20,13 @@ class SpaceXActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySpacexBinding
     private val viewModel: SpaceXViewModel by viewModels()
-    private val spaceXAdapter = SpaceXAdapter(mutableListOf())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySpacexBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel.companyLiveData.observe(this, {
+        viewModel.data.observe(this, {
             when (it) {
                 is SpaceXViewModel.UiState.Loading -> showProgress()
                 is SpaceXViewModel.UiState.Error -> showErrorMessage()
@@ -35,10 +34,10 @@ class SpaceXActivity : AppCompatActivity() {
             }
         })
 
-        viewModel.getCompanyData()
+        viewModel.getData()
 
         binding.errorState.btnTryAgain.setOnClickListener {
-            viewModel.getCompanyData()
+            viewModel.getData()
         }
     }
 
@@ -97,6 +96,7 @@ class SpaceXActivity : AppCompatActivity() {
         with(binding) {
             progress.progressContainer.visibility = View.VISIBLE
             errorState.errorContainer.visibility = View.GONE
+            group.visibility = View.GONE
         }
     }
 

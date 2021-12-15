@@ -3,4 +3,8 @@
     <dimen name="margin_medium">8dp</dimen>
     <dimen name="margin_large">16dp</dimen>
     <dimen name="filter_image">40dp</dimen>
+    <dimen name="base_image">50dp</dimen>
+    <dimen name="heading_text_size">18sp</dimen>
+    <dimen name="margin_x_large">24dp</dimen>
+    <dimen name="card_elevation">12dp</dimen>
 </resources>

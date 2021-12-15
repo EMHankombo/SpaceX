@@ -6,21 +6,20 @@ import com.example.android.spacex.network.model.Company
 import com.example.android.spacex.network.model.CompanyAndLaunchInfo
 import com.example.android.spacex.network.model.Launch
 import com.example.android.spacex.testrule.MainCoroutineRule
+import com.example.android.spacex.ui.repository.SpaceXRepository
+import com.example.android.spacex.ui.viewmodel.SpaceXViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
-import org.junit.Assert.*
 
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
 import org.junit.runner.RunWith
-import org.junit.runners.JUnit4
 import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
 import org.mockito.kotlin.verify
 import org.mockito.kotlin.whenever
-import java.io.IOException
 
 @ExperimentalCoroutinesApi
 @RunWith(MockitoJUnitRunner::class)
@@ -47,24 +46,24 @@ class SpaceXViewModelTest {
     @Before
     fun setUp() {
         viewModel = SpaceXViewModel(repository)
-        viewModel.companyLiveData.observeForever(liveDataObserver)
+        viewModel.data.observeForever(liveDataObserver)
         companyLaunchInfo = CompanyAndLaunchInfo(company, launch)
     }
 
     @Test
-    fun `call to get data is returns successfully`() = coroutineRule.runBlockingTest {
+    fun `call to get data returns successfully`() = coroutineRule.runBlockingTest {
         whenever(repository.getData()).thenReturn(companyLaunchInfo)
 
-        viewModel.getCompanyData()
+        viewModel.getData()
 
         verify(liveDataObserver).onChanged(SpaceXViewModel.UiState.Success(companyLaunchInfo))
     }
 
     @Test
-    fun `call to get data is returns with an error`() = coroutineRule.runBlockingTest {
+    fun `call to get data returns with an error`() = coroutineRule.runBlockingTest {
         whenever(repository.getData()).thenAnswer { throw Exception("An error Occurred") }
 
-        viewModel.getCompanyData()
+        viewModel.getData()
 
         verify(liveDataObserver).onChanged(SpaceXViewModel.UiState.Error)
     }

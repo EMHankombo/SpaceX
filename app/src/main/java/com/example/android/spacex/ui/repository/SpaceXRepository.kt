@@ -1,14 +1,10 @@
-package com.example.android.spacex.ui
+package com.example.android.spacex.ui.repository
 
 import com.example.android.spacex.network.model.Company
 import com.example.android.spacex.network.model.CompanyAndLaunchInfo
 import com.example.android.spacex.network.model.Launch
 
 interface SpaceXRepository {
-
-    suspend fun getCompanyInfo():Company
-
-    suspend fun getLaunches():List<Launch>
 
     suspend fun getData():CompanyAndLaunchInfo
 }

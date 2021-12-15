@@ -3,7 +3,7 @@
     package="com.example.android.spacex">
 
     <uses-permission-sdk-23 android:name="android.permission.INTERNET" />
-
+    <queries/>
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
