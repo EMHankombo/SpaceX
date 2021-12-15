@@ -12,6 +12,4 @@ object Utilities {
         return SimpleDateFormat("dd-MM-yyyy").format(parsedDate)
     }
 
-
-
 }

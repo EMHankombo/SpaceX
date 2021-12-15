@@ -53,7 +53,6 @@
         android:id="@+id/tv_company_information"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/company_information"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,17 +71,16 @@
 
     <include
         android:id="@+id/error_state"
-        android:visibility="gone"
-        layout="@layout/error_screen"/>
+        layout="@layout/error_screen" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
+    <include
+        android:id="@+id/progress"
+        layout="@layout/progress_layout" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:constraint_referenced_ids="img_filter,tv_company_name,tv_company_heading,tv_launches_heading" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

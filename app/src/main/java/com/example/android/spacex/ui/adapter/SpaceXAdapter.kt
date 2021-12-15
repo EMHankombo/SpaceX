@@ -7,9 +7,10 @@ import com.bumptech.glide.Glide
 import com.example.android.spacex.R
 import com.example.android.spacex.databinding.LaunchItemBinding
 import com.example.android.spacex.network.model.Launch
+import com.example.android.spacex.network.model.Links
 import com.example.android.spacex.utils.Utilities
 
-class SpaceXAdapter(private val launches: List<Launch>) :
+class SpaceXAdapter(private val launches: List<Launch>,private val clickListener:(Links)->Unit = {}) :
     RecyclerView.Adapter<SpaceXAdapter.SpaceXViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SpaceXViewHolder {
@@ -25,7 +26,7 @@ class SpaceXAdapter(private val launches: List<Launch>) :
         return launches.size
     }
 
-    class SpaceXViewHolder(private val itemBinding: LaunchItemBinding) :
+   inner class SpaceXViewHolder(private val itemBinding: LaunchItemBinding) :
         RecyclerView.ViewHolder(itemBinding.root) {
 
         fun binding(launch: Launch) {
@@ -41,7 +42,9 @@ class SpaceXAdapter(private val launches: List<Launch>) :
                     )
                 }
                 Glide.with(itemBinding.root).load(launch.links.patch.large).into(imgPatch)
-
+            }
+            itemBinding.root.setOnClickListener {
+                clickListener(launch.links)
             }
 
         }

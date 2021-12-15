@@ -10,4 +10,8 @@
     <string name="tv_days_heading">Days:</string>
     <string name="tv_error">Something went wrong!</string>
     <string name="error_btn_text">Try again</string>
+    <string name="dialog_message">Checkout more info</string>
+    <string name="dialog_article">Article</string>
+    <string name="dialog_wikipedia">Wikipedia</string>
+    <string name="dialog_youtube">YouTube</string>
 </resources>
