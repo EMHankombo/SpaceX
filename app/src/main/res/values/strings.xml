@@ -7,7 +7,7 @@
     <string name="tv_mission_heading">Mission:</string>
     <string name="tv_date_time_heading">Date/time:</string>
     <string name="tv_rocket_heading">Rocket:</string>
-    <string name="tv_days_heading">Days:</string>
+    <string name="tv_days_heading">Days %1$s:</string>
     <string name="tv_error">Something went wrong!</string>
     <string name="error_btn_text">Try again</string>
     <string name="dialog_message">Checkout more info</string>
