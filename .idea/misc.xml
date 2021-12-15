@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/enoch/AndroidStudioProjects/SpaceX/app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.21574074074074073" />
+        <entry key="..\:/Users/enoch/AndroidStudioProjects/SpaceX/app/src/main/res/drawable/ic_baseline_clear_24.xml" value="0.21574074074074073" />
         <entry key="..\:/Users/enoch/AndroidStudioProjects/SpaceX/app/src/main/res/layout/activity_main.xml" value="0.13360507246376813" />
         <entry key="..\:/Users/enoch/AndroidStudioProjects/SpaceX/app/src/main/res/layout/activity_spacex.xml" value="0.4" />
-        <entry key="..\:/Users/enoch/AndroidStudioProjects/SpaceX/app/src/main/res/layout/launch_item.xml" value="0.264" />
+        <entry key="..\:/Users/enoch/AndroidStudioProjects/SpaceX/app/src/main/res/layout/launch_item.xml" value="0.4" />
       </map>
     </option>
   </component>

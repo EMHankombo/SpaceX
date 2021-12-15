@@ -2,7 +2,7 @@ package com.example.android.spacex.network.model
 
 
 data class Launch(
-    val dateUtc: String,
+    val date_utc: String,
     val details: String,
     val links: Links,
     val name: String,

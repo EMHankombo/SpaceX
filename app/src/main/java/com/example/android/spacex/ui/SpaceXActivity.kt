@@ -3,7 +3,7 @@ package com.example.android.spacex.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android.spacex.R
 import com.example.android.spacex.databinding.ActivitySpacexBinding
 import com.example.android.spacex.ui.adapter.SpaceXAdapter
@@ -14,7 +14,7 @@ class SpaceXActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySpacexBinding
     private val viewModel: SpaceXViewModel by viewModels()
-    private val spaceXAdapter = SpaceXAdapter()
+    private val spaceXAdapter = SpaceXAdapter(mutableListOf())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +33,10 @@ class SpaceXActivity : AppCompatActivity() {
                 info.valuation.toString()
             )
 
+            binding.rvLaunches.apply {
+                layoutManager = LinearLayoutManager(context)
+                adapter = SpaceXAdapter(it.data.launches)
+            }
         })
 
         viewModel.getCompanyData()

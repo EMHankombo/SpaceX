@@ -19,7 +19,6 @@ class SpaceXViewModel @Inject constructor(private val spaceXRepository: SpaceXRe
         get() = _companyLiveData
 
     fun getCompanyData() {
-        _companyLiveData.value = UiState.Loading
         viewModelScope.launch {
             try {
                 val companyInfo = spaceXRepository.getData()
