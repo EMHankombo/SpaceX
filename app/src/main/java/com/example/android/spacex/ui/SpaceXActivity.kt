@@ -54,7 +54,7 @@ class SpaceXActivity : AppCompatActivity() {
             company.founder,
             company.founded.toString(),
             company.employees.toString(),
-            company.launchSites.toString(),
+            company.launch_sites.toString(),
             company.valuation.toString()
         )
 
