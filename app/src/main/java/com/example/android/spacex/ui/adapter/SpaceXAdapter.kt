@@ -4,7 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.android.spacex.FROM
 import com.example.android.spacex.R
+import com.example.android.spacex.SINCE
 import com.example.android.spacex.databinding.LaunchItemBinding
 import com.example.android.spacex.network.model.Launch
 import com.example.android.spacex.network.model.Links
@@ -39,16 +41,20 @@ class SpaceXAdapter(
                 tvMission.text = launch.name
                 tvDateTime.text = Utilities.getDateOnly(launch.date_utc)
                 tvRocket.text = launch.rocket
+
                 val duration = if (Utilities.getDaysBetweenDates(
                         Instant.now().toString(),
                         launch.date_utc
                     ) < 0
-                ) "since" else "from"
+                ) SINCE else FROM
+
                 tvDaysHeading.text = itemBinding.root.context.getString(R.string.tv_days_heading,duration)
+
                 tvDays.text = abs(Utilities.getDaysBetweenDates(
                     Instant.now().toString(),
                     launch.date_utc
                 )).toString()
+
                 if (launch.success) {
                     imgLaunchSuccess.setImageResource(R.drawable.ic_baseline_check_24)
                 } else {
